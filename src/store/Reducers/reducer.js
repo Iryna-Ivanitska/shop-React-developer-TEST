@@ -1,8 +1,8 @@
 import { FETCH_DATA, SELECT_CATEGORY } from "../Actions/actions"
 
 const initialState = {
-  categories: [],
-  selectedCategory: 'all'
+  categories: null,
+  selectedCategory: {}
 }
 
 export default function appReducer(state = initialState, action) {
@@ -10,14 +10,14 @@ export default function appReducer(state = initialState, action) {
     case FETCH_DATA: {
       return {
         ...state,
-        categories: action.payload
+        categories: action.payload,
+        selectedCategory: action.payload[0]
       }
     }
     case SELECT_CATEGORY: {
-      console.log(action.payload)
       return {
         ...state,
-        selectedCategory: action.payload
+        selectedCategory: state.categories.filter( cat => cat.name === action.payload)[0]
       }
     }
     default:

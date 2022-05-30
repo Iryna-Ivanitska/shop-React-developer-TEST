@@ -5,19 +5,18 @@ import './nav.css'
 
 class Nav extends Component {
   render() {
-    console.log(this.props)
     const {categories} = this.props;
-    const categoryList = categories.map( el => {
+    const categoryList = categories ? categories.map( el => {
       return <div key={el.name} 
         onClick={() => this.props.selectCategory(el.name)}
-        className={ this.props.selectedCategory === el.name ? 'nav-item active-nav' : 'nav-item'}
+        className={ this.props.selectedCategory.name === el.name ? 'nav-item active-nav' : 'nav-item'}
         >{el.name}</div>
-    })
-    return (
-      <nav className="nav">
-      {categoryList}
-      </nav>
-    );
+    }) : null
+      return (
+        <nav className="nav">
+        {categoryList}
+        </nav>
+      );
   }
 }
 

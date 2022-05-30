@@ -6,10 +6,13 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import appReducer from './store/Reducers/reducer';
+import { fetchProducts } from './store/Actions/actions';
 
 const store = configureStore({
   reducer: appReducer
 })
+
+store.dispatch(fetchProducts())
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
