@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './App.css';
 import Header from './components/header/Header';
+import { fetchData } from './store/Actions/actions';
 
 const DATA_QUERY = `
 {
@@ -37,23 +39,12 @@ const DATA_QUERY = `
 `
 
 class App extends React.PureComponent {
-  
-  constructor(props) {
-    super(props)
-    this.state = {
-      categories: [],
-      selectedCategory: ''
-    }
-  }
 
+  
   render() {
-    const {categories} = this.state;
     return (
     <div className="container">
-      <Header 
-        categories={categories}
-        selectCategory = {this.selectCategory}
-       />
+      <Header />
     </div>
     );
   }
@@ -64,7 +55,7 @@ class App extends React.PureComponent {
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify( { query: DATA_QUERY } )
     }).then( response => response.json())
-    .then( data => this.setState( {...this.state, categories: data.data.categories} ))
+    .then( data => this.props.fetchData(data.data.categories))
   }
 
   selectCategory(name) {
@@ -72,4 +63,12 @@ class App extends React.PureComponent {
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  ...state
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchData: (data) => dispatch(fetchData(data)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
