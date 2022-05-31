@@ -4,3 +4,7 @@
   justify-content: space-between;
   height: 80px;
 }
+
+.nav-section {
+  display: flex;
+}
