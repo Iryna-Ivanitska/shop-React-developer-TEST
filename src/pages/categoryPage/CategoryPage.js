@@ -12,7 +12,9 @@ class CategoryPage extends Component {
     return (
       <>
         <h1 className='page-title'>{categoryName}</h1>
-        {productList}
+        <section className='product-list'>
+          {productList}
+        </section>
       </>
     );
   }

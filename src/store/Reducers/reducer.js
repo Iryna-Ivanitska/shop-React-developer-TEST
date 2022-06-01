@@ -4,7 +4,7 @@ const initialState = {
   categories: null,
   selectedCategory: {},
   currencies: [],
-  selectedCurrency: ''
+  selectedCurrency: 'USD'
 }
 
 export default function appReducer(state = initialState, action) {
