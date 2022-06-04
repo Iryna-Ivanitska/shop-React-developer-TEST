@@ -1,0 +1,10 @@
+.gallery {
+  display: flex;
+  margin-top: 80px;
+}
+
+.main-img {
+  width: 610px;
+  height: 510px;
+  object-fit: contain;
+}

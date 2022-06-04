@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { selectCategory } from "../../../store/Actions/actions";
 import './nav.css'
 
@@ -7,10 +8,10 @@ class Nav extends Component {
   render() {
     const {categories} = this.props;
     const categoryList = categories ? categories.map( el => {
-      return <div key={el.name} 
+      return <Link to="/" key={el.name} 
         onClick={() => this.props.selectCategory(el.name)}
         className={ this.props.selectedCategory.name === el.name ? 'nav-item active-nav' : 'nav-item'}
-        >{el.name}</div>
+        >{el.name}</Link>
     }) : null
       return (
         <nav className="nav">

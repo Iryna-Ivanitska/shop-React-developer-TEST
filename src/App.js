@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import './App.css';
 import Header from './components/header/Header';
 import CategoryPage from './pages/categoryPage/CategoryPage';
+import ProductPage from './pages/productPage/ProductPage';
 import { fetchData } from './store/Actions/actions';
 
 // const DATA_QUERY = `
@@ -47,18 +49,12 @@ class App extends React.PureComponent {
     return (
     <div className="container">
       <Header />
-      <CategoryPage />
+      <Routes>
+        <Route path="/" element={ <CategoryPage />} />
+        <Route path="/:productId" element={<ProductPage/>} />
+      </Routes>
     </div>
     );
-  }
-
-  componentDidMount() {
-    // fetch('http://localhost:4000/', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json'},
-    //   body: JSON.stringify( { query: DATA_QUERY } )
-    // }).then( response => response.json())
-    // .then( data => this.props.fetchData(data.data.categories))
   }
 }
 

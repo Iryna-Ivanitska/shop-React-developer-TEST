@@ -1,0 +1,17 @@
+.details {
+  margin-left: 100px;
+}
+
+.name {
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 27px;
+}
+
+.brand {
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 27px;
+  margin-top: 16px;
+  display: block;
+}

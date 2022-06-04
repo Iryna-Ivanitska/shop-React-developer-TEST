@@ -1,10 +1,11 @@
-import { FETCH_DATA, SELECT_CATEGORY, SELECT_CURRENCY } from "../Actions/actions"
+import { FETCH_DATA, SELECT_CATEGORY, SELECT_CURRENCY, SELECT_IMG } from "../Actions/actions"
 
 const initialState = {
   categories: null,
   selectedCategory: {},
   currencies: [],
-  selectedCurrency: 'USD'
+  selectedCurrency: 'USD',
+  selectedImgUrl: ''
 }
 
 export default function appReducer(state = initialState, action) {
@@ -28,6 +29,12 @@ export default function appReducer(state = initialState, action) {
       return {
         ...state,
         selectedCurrency: action.payload
+      }
+    }
+    case SELECT_IMG: {
+      return {
+        ...state,
+        selectedImgUrl: action.payload
       }
     }
     default:

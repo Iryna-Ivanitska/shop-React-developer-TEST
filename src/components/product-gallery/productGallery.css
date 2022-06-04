@@ -1,0 +1,14 @@
+.thumbnails {
+  display: flex;
+  flex-direction: column;
+  height: 510px;
+  overflow: overlay;
+  min-width: 120px;
+}
+
+.thumbnail-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 40px;
+}

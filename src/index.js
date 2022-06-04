@@ -8,6 +8,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import appReducer from './store/Reducers/reducer';
 import { fetchProducts } from './store/thunk';
 import thunk from 'redux-thunk';
+import { BrowserRouter } from 'react-router-dom';
 
 const store = configureStore({
   reducer: appReducer,
@@ -19,9 +20,11 @@ store.dispatch(fetchProducts())
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <BrowserRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
