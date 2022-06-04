@@ -8,7 +8,7 @@ class ProductDetails extends Component {
     return (
       <div className="details" >
         <h1 className="name">{product.name}</h1>
-        <span className="brand">Brand: {product.brand}</span>
+        <span className="brand">{product.brand}</span>
       </div>
     );
   }
