@@ -14,7 +14,7 @@ class CurrencySwitcher extends Component {
     return (
       <select name="currencySwitcher" onChange={e => selectCurrency(e.target.value)} className="select">
         {currencies.map( cur => {
-          return <option key={cur.label} value={cur.label}>{cur.symbol} {cur.label}</option>
+          return <option key={cur.label} value={cur.label} className="option">{cur.symbol} {cur.label}</option>
         })}
       </select>
     );

@@ -24,3 +24,17 @@ a {
   text-decoration: none;
   color: var(--c-text);
 }
+
+.thumbnails::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+.thumbnails::-webkit-scrollbar-track {
+  background: rgb(231, 231, 231);        /* color of the tracking area */
+  border-radius: 20px;
+}
+
+.thumbnails::-webkit-scrollbar-thumb {
+  background-color: var(--c-primary);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+}
