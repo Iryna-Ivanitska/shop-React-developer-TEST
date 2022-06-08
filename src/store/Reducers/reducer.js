@@ -46,7 +46,6 @@ export default function appReducer(state = initialState, action) {
       }
     }
     case ADD_TO_CART: {
-      console.log(action.payload)
       // const products = state.productsInCart.map( el => {
       //   if (el.name === action.payload.name) el.count++
       //   return el
