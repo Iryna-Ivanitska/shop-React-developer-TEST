@@ -3,6 +3,7 @@ export const SELECT_CATEGORY = 'SELECT_CATEGORY';
 export const SELECT_CURRENCY = 'SELECT_CURRENCY';
 export const SELECT_IMG = 'SELECT_IMG';
 export const SELECT_ATTRIBUTE = 'SELECT_ATTRIBUTE';
+export const ADD_TO_CART = 'ADD_TO_CART';
 
 export const fetchData = (data) => {
   return {
@@ -34,5 +35,11 @@ export const selectAttribute = (attributes) => {
   return {
     type: SELECT_ATTRIBUTE,
     payload: attributes
+  }
+};
+export const addToCart = (product) => {
+  return {
+    type: ADD_TO_CART,
+    payload: product
   }
 };

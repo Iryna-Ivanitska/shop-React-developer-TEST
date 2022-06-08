@@ -1,0 +1,8 @@
+.cart {
+  width: 20px;
+  height: 20px;
+  background: url('./../../../assets/svg/empty-cart.svg') no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  margin-left: 20px;
+}

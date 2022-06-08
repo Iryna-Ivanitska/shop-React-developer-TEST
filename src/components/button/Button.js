@@ -3,9 +3,9 @@ import './Button.css';
 
 class Button extends Component {
   render() {
-    const {text} = this.props
+    const {text, product, btnFunction} = this.props
     return (
-      <button className="btn">{text}</button>
+      <button className="btn" onClick={()=>btnFunction(product)}>{text}</button>
     );
   }
 }

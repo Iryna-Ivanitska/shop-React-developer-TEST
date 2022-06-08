@@ -1,4 +1,4 @@
-import { FETCH_DATA, SELECT_ATTRIBUTE, SELECT_CATEGORY, SELECT_CURRENCY, SELECT_IMG } from "../Actions/actions"
+import { ADD_TO_CART, FETCH_DATA, SELECT_ATTRIBUTE, SELECT_CATEGORY, SELECT_CURRENCY, SELECT_IMG } from "../Actions/actions"
 
 const initialState = {
   categories: null,
@@ -6,7 +6,8 @@ const initialState = {
   currencies: [],
   selectedCurrency: 'USD',
   selectedImgUrl: '',
-  selectedAttributes: []
+  selectedAttributes: [],
+  productsInCart: []
 }
 
 export default function appReducer(state = initialState, action) {
@@ -39,10 +40,20 @@ export default function appReducer(state = initialState, action) {
       }
     }
     case SELECT_ATTRIBUTE: {
-      console.log(action.payload)
       return {
         ...state,
         selectedAttributes: action.payload
+      }
+    }
+    case ADD_TO_CART: {
+      console.log(action.payload)
+      // const products = state.productsInCart.map( el => {
+      //   if (el.name === action.payload.name) el.count++
+      //   return el
+      // } )
+      return {
+        ...state,
+        productsInCart: [...state.productsInCart, action.payload]
       }
     }
     default:
