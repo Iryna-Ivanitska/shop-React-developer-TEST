@@ -1,0 +1,12 @@
+.btn {
+  background-color: var(--c-primary);
+  color: #fff;
+  border: none;
+  width: 300px;
+  padding: 16px 32px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 120%;
+  text-transform: uppercase;
+  cursor: pointer;
+}

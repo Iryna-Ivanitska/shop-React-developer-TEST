@@ -16,3 +16,12 @@
   display: block;
   margin-bottom: 40px;
 }
+
+.price-name {
+  font-family: 'Roboto Condensed';
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 18px;
+  margin-top: 45px;
+  text-transform: uppercase;
+}

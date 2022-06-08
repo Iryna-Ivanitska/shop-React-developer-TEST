@@ -1,6 +1,8 @@
 import { Component } from "react";
 import Attributes from "../attributes/Attributes";
 import './ProductDetails.css'
+import Price from '../price/Price';
+import Button from './../button/Button';
 
 class ProductDetails extends Component {
   render() {
@@ -10,6 +12,9 @@ class ProductDetails extends Component {
         <h1 className="name">{product.name}</h1>
         <span className="brand">{product.brand}</span>
         <Attributes attributes={product.attributes} productName={product.id}/>
+        <div className="price-name">Price</div>
+        <Price />
+        <Button text="Add to cart"/>
       </div>
     );
   }
