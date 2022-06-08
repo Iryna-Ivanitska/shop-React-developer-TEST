@@ -1,11 +1,12 @@
 .attributes-block {
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .attributes {
   display: flex;
   padding: 5px 0;
   column-gap: 10px;
+  align-items: center;
 }
 
 .attributes-item {
@@ -16,5 +17,18 @@
 }
 
 .attribute-name {
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 18px;
+}
+
+.attribute-active {
+  border: 1px solid #5ECE7B;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
 }

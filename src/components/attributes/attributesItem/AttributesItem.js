@@ -7,13 +7,24 @@ class AttributesItem extends Component {
   render() {
     const {attribute, productName, selectedAttributes, select} = this.props;
     const values = attribute.type === 'text' ? attribute.items.map( item => {
+      const isChecked = selectedAttributes.some( el => el.value === item.displayValue
+                                                && el.productName === productName && el.name === attribute.name )
       return <div className="attributes-item" key={item.id} 
-      onClick={ () => selectAttribute(productName, attribute.id, item.id)}>{item.value}</div>
+      style={ isChecked ? {'backgroundColor': 'black', 'color': 'white'} : null}
+      onClick={ () => selectAttribute(productName, attribute.id, item.id)}
+      >{item.value}</div>
     })
     : attribute.items.map( item => {
-      return <div className="attributes-item" key={item.id} 
-      style={ {'backgroundColor': item.value}} 
+      const isChecked = selectedAttributes.some( el => el.value === item.displayValue 
+                                                && el.productName === productName && el.name === attribute.name)
+      return !isChecked ? <div className="attributes-item" key={item.id} 
+      style={{'backgroundColor': item.value}} 
       onClick={ () => selectAttribute(productName, attribute.id, item.id)}></div>
+      : <div className="attribute-active" key={item.id}>
+        <div className="attributes-item"  
+      style={{'backgroundColor': item.value}} 
+      onClick={ () => selectAttribute(productName, attribute.id, item.id)}></div>
+      </div>
     })
 
     function selectAttribute(productName, name, value) {
@@ -24,22 +35,14 @@ class AttributesItem extends Component {
         value: value
       }
       
-      
       if (!attributes.some(el => el.productName === productName && el.name === name)) {
         attributes.push(obj)
       } else {
         attributes = attributes.map( el => el.productName === productName && el.name === name ? obj: el);
       }
-      console.log(attributes)
       
-
-
-
       select(attributes)
 
-
-
-      
     }
 
     return (

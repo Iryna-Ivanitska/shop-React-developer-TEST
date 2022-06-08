@@ -5,7 +5,6 @@ import './ProductDetails.css'
 class ProductDetails extends Component {
   render() {
     const { product } = this.props
-    console.log(product.attributes)
     return (
       <div className="details" >
         <h1 className="name">{product.name}</h1>
