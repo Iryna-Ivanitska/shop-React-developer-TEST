@@ -9,7 +9,6 @@ import { addToCart } from "../../store/Actions/actions";
 class ProductDetails extends Component {
   render() {
     const { product, addToCart } = this.props
-    console.log(this.props)
 
     return (
       <div className="details" >

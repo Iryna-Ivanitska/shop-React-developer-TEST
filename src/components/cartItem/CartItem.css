@@ -1,0 +1,15 @@
+.cart-item {
+  border-bottom: 1px solid #E5E5E5;
+  padding: 24px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.cart-item:first-child {
+  border-top: 1px solid #E5E5E5;
+}
+
+.cart-thumbnail {
+  height: 288px;
+  width: 200px;
+  object-fit: contain;
+}

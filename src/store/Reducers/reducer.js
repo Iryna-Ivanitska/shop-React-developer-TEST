@@ -1,4 +1,4 @@
-import { ADD_TO_CART, FETCH_DATA, SELECT_ATTRIBUTE, SELECT_CATEGORY, SELECT_CURRENCY, SELECT_IMG } from "../Actions/actions"
+import { ADD_TO_CART, DEC_COUNTER, DEL_FROM_CART, FETCH_DATA, INC_COUNTER, SELECT_ATTRIBUTE, SELECT_CATEGORY, SELECT_CURRENCY, SELECT_IMG } from "../Actions/actions"
 
 const initialState = {
   categories: null,
@@ -46,13 +46,41 @@ export default function appReducer(state = initialState, action) {
       }
     }
     case ADD_TO_CART: {
-      // const products = state.productsInCart.map( el => {
-      //   if (el.name === action.payload.name) el.count++
-      //   return el
-      // } )
+      action.payload.counter = 1;
       return {
         ...state,
         productsInCart: [...state.productsInCart, action.payload]
+      }
+    }
+    case DEL_FROM_CART: {
+      console.log(action.payload)
+      return {
+        ...state,
+        productsInCart: state.productsInCart.filter( el => el.name !== action.payload.name)
+      }
+    }
+    case INC_COUNTER: {
+      const products = state.productsInCart.map( el => el.name === action.payload.name 
+        ? {
+          ...el,
+          counter: el.counter + 1
+          } 
+        : el)
+      return {
+        ...state,
+        productsInCart: products
+      }
+    }
+    case DEC_COUNTER: {
+      const products = state.productsInCart.map( el => el.name === action.payload.name 
+        ? {
+          ...el,
+          counter: el.counter - 1
+          } 
+        : el)
+      return {
+        ...state,
+        productsInCart: products
       }
     }
     default:

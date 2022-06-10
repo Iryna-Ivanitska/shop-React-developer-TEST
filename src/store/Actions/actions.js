@@ -4,6 +4,9 @@ export const SELECT_CURRENCY = 'SELECT_CURRENCY';
 export const SELECT_IMG = 'SELECT_IMG';
 export const SELECT_ATTRIBUTE = 'SELECT_ATTRIBUTE';
 export const ADD_TO_CART = 'ADD_TO_CART';
+export const INC_COUNTER = 'INC_COUNTER';
+export const DEC_COUNTER = 'DEC_COUNTER';
+export const DEL_FROM_CART = 'DEL_FROM_CART';
 
 export const fetchData = (data) => {
   return {
@@ -42,4 +45,22 @@ export const addToCart = (product) => {
     type: ADD_TO_CART,
     payload: product
   }
+};
+export const increment = (product) => {
+  return {
+    type: INC_COUNTER,
+    payload: product
+   }
+};
+export const decrement = (product) => {
+  return {
+    type: DEC_COUNTER,
+    payload: product
+   }
+};
+export const deleteFromCart = (product) => {
+  return {
+    type: DEL_FROM_CART,
+    payload: product
+   }
 };

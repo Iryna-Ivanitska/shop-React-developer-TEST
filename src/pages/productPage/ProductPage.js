@@ -12,12 +12,11 @@ class ProductPage extends Component {
 
     return ( <>
       <div className="gallery">
-        {product ? <>
+        {product && <>
           <ProductGallery pictures={product.gallery} />
           <img src={this.props.selectedImgUrl || product.gallery[0]} alt={product.name} className="main-img"/>
           <ProductDetails product={product}/>
-        </>
-      : null}
+        </>}
       </div>
     </>
     );
