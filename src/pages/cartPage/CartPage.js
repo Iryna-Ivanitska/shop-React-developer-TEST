@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { connect } from "react-redux";
+import Total from "../../components/total/Total";
 import CartItem from './../../components/cartItem/CartItem';
 import './CartPage.css'
 
@@ -14,6 +15,7 @@ class CartPage extends Component {
         <h1 className='page-title'>Cart</h1>
         {products.length ? <section className='cart-list'>
           {productList}
+          <Total />
         </section>
         : <div className="empty-cart">Your cart is empty</div>}
       </>

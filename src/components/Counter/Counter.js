@@ -11,9 +11,7 @@ class Counter extends Component {
     function handleDecrement() {
       if (product.counter === 1) {
         let result = window.confirm('Delete product from the cart?');
-        if (!result) {
-          increment(product)
-      } else deleteFromCart(product);
+        if (result) deleteFromCart(product);
     } else {
       decrement(product)
     }
