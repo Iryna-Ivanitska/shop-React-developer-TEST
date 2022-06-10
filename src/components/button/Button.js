@@ -1,13 +1,21 @@
 import { Component } from "react";
+import { connect } from "react-redux";
 import './Button.css';
 
 class Button extends Component {
   render() {
-    const {text, product, btnFunction} = this.props
+    const {text, product, btnFunction, overlay} = this.props
     return (
-      <button className="btn" onClick={()=>btnFunction(product)}>{text}</button>
+      <button className={overlay ? "btn-s": "btn"} onClick={()=>btnFunction(product)}>{text}</button>
     );
   }
 }
 
-export default Button;
+const mapStateToProps = state => ({
+  ...state
+});
+
+const mapDispatchToProps = dispatch => ({
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Button);

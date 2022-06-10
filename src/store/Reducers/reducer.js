@@ -1,4 +1,4 @@
-import { ADD_TO_CART, DEC_COUNTER, DEL_FROM_CART, FETCH_DATA, INC_COUNTER, SELECT_ATTRIBUTE, SELECT_CATEGORY, SELECT_CURRENCY, SELECT_IMG } from "../Actions/actions"
+import { ADD_TO_CART, DEC_COUNTER, DEL_FROM_CART, FETCH_DATA, INC_COUNTER, OPEN_OVERLAY_CART, SELECT_ATTRIBUTE, SELECT_CATEGORY, SELECT_CURRENCY, SELECT_IMG, SET_TOTAL_COUNT, SET_TOTAL_SUM } from "../Actions/actions"
 
 const initialState = {
   categories: null,
@@ -7,7 +7,10 @@ const initialState = {
   selectedCurrency: 'USD',
   selectedImgUrl: '',
   selectedAttributes: [],
-  productsInCart: []
+  productsInCart: [],
+  overlay: false,
+  totalQuantity: 0,
+  totalSum: 0
 }
 
 export default function appReducer(state = initialState, action) {
@@ -51,14 +54,20 @@ export default function appReducer(state = initialState, action) {
       action.payload.counter = 1;
       return {
         ...state,
-        productsInCart: [...state.productsInCart, action.payload]
+        productsInCart: [...state.productsInCart, action.payload],
+        totalQuantity: state.totalQuantity + 1
       }
     }
     case DEL_FROM_CART: {
-      console.log(action.payload)
       return {
         ...state,
         productsInCart: state.productsInCart.filter( el => el.name !== action.payload.name)
+      }
+    }
+    case OPEN_OVERLAY_CART: {
+      return {
+        ...state,
+        overlay: !state.overlay
       }
     }
     case INC_COUNTER: {
@@ -83,6 +92,18 @@ export default function appReducer(state = initialState, action) {
       return {
         ...state,
         productsInCart: products
+      }
+    }
+    case SET_TOTAL_SUM: {
+      return {
+        ...state,
+        totalSum: action.payload
+      }
+    }
+    case SET_TOTAL_COUNT: {
+      return {
+        ...state,
+        totalQuantity: action.payload
       }
     }
     default:

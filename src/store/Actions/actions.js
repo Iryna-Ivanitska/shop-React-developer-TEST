@@ -7,6 +7,10 @@ export const ADD_TO_CART = 'ADD_TO_CART';
 export const INC_COUNTER = 'INC_COUNTER';
 export const DEC_COUNTER = 'DEC_COUNTER';
 export const DEL_FROM_CART = 'DEL_FROM_CART';
+export const OPEN_OVERLAY_CART = 'OPEN_OVERLAY_CART';
+export const SET_TOTAL_SUM = 'SET_TOTAL_SUM';
+export const SET_TOTAL_COUNT = 'SET_TOTAL_COUNT';
+
 
 export const fetchData = (data) => {
   return {
@@ -62,5 +66,22 @@ export const deleteFromCart = (product) => {
   return {
     type: DEL_FROM_CART,
     payload: product
+   }
+};
+export const openOverlayCart = () => {
+  return {
+    type: OPEN_OVERLAY_CART,
+   }
+};
+export const setTotalSum = (sum) => {
+  return {
+    type: SET_TOTAL_SUM,
+    payload: sum
+   }
+};
+export const setTotalCount = (total) => {
+  return {
+    type: SET_TOTAL_COUNT,
+    payload: total
    }
 };

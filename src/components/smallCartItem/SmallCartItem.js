@@ -2,7 +2,7 @@ import { Component } from "react";
 import { connect } from "react-redux";
 import Attributes from "../attributes/Attributes";
 import Counter from "../Counter/Counter";
-import './CartItem.css'
+import './SmallCartItem.css'
 
 class CartItem extends Component {
 
@@ -14,9 +14,9 @@ class CartItem extends Component {
     return (
       <div className="cart-item">
       <div className="details" >
-        <h1 className="name">{product.name}</h1>
-        <span className="brand">{product.brand}</span>
-        <div className='product-price'>{price ? price[0].currency.symbol + price[0].amount : null}</div>
+        <h4 className="s-name">{product.name}</h4>
+        <span className="s-name">{product.brand}</span>
+        <div className='s-price'>{price ? price[0].currency.symbol + price[0].amount : null}</div>
         <Attributes attributes={product.attributes} productName={product.id}/>
       </div>
       <Counter product={product}/>

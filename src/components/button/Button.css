@@ -10,3 +10,22 @@
   text-transform: uppercase;
   cursor: pointer;
 }
+
+.btn-s {
+  background-color: var(--c-primary);
+  color: #fff;
+  border: none;
+  width: 180px;
+  padding: 13px 36px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 120%;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.btn-s:first-child {
+  background-color: #fff;
+  border: 1px solid var(--c-text);
+  color: var(--c-text);
+}

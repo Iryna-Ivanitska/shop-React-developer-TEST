@@ -1,15 +1,16 @@
 import { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { openOverlayCart } from "../../../store/Actions/actions";
 import './MiniCart.css';
 
 class MiniCart extends Component {
 
   render() {
-    const { productsInCart } = this.props
+    const { productsInCart, openOverlayCart } = this.props
     return (
-      <Link to={'cart'}>
-        <div className="cart">
+      <Link to={'cart'} onClick={() => openOverlayCart()}>
+        <div className="cart" onMouseEnter={() => openOverlayCart()} >
           {productsInCart.length !== 0 &&
           <div className="quantity" >{productsInCart.length }</div> }
         </div>
@@ -24,7 +25,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-
+  openOverlayCart: () => dispatch(openOverlayCart())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MiniCart);

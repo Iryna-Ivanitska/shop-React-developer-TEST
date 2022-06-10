@@ -8,3 +8,7 @@
 .nav-section {
   display: flex;
 }
+
+.content {
+  position: relative;
+}

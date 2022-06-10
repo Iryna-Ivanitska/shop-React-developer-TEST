@@ -1,17 +1,20 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
+import { setTotalCount, setTotalSum } from '../../store/Actions/actions';
 import Button from '../button/Button';
 import './Total.css'
 
 class Total extends Component {
   render() {
-    const { productsInCart, selectedCurrency } = this.props
-    const quantity = productsInCart.reduce( (acc, el) => acc += el.counter, 0)
-    let totalPrice = productsInCart.reduce( (acc, el) => {
-      let price = el.prices.filter( item => item.currency.label === selectedCurrency)[0].amount
-      return acc += price * el.counter
-    }, 0);
-    const tax = totalPrice * 0.21
+    const { totalQuantity, totalSum  } = this.props
+    // const quantity = productsInCart.reduce( (acc, el) => acc += el.counter, 0)
+    // setTotalCount(quantity)
+    // let totalPrice = productsInCart.reduce( (acc, el) => {
+    //   let price = el.prices.filter( item => item.currency.label === selectedCurrency)[0].amount
+    //   return acc += price * el.counter
+    // }, 0);
+    // setTotalSum(totalPrice)
+    const tax = totalSum * 0.21
     return (
       <>
       <table>
@@ -21,11 +24,11 @@ class Total extends Component {
         </tr>
         <tr>
           <td>Quantity:</td>
-          <td className='values'>{quantity}</td>
+          <td className='values'>{totalQuantity}</td>
         </tr>
         <tr>
           <td>Total:</td>
-          <td className='values'>{totalPrice.toFixed(2)}</td>
+          <td className='values'>{totalSum.toFixed(2)}</td>
         </tr>
       </table>
       <Button text="Order"/>
@@ -39,6 +42,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  
+  
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Total);

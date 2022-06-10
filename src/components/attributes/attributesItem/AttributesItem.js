@@ -5,7 +5,7 @@ import './AttributesItem.css'
 
 class AttributesItem extends Component {
   render() {
-    const {attribute, productName, selectedAttributes, select} = this.props;
+    const {attribute, productName, selectedAttributes, select, overlay} = this.props;
     const values = attribute.type === 'text' ? attribute.items.map( item => {
       const isChecked = selectedAttributes.some( el => el.value === item.displayValue
                                                 && el.productName === productName && el.name === attribute.name )
@@ -48,7 +48,7 @@ class AttributesItem extends Component {
     return (
       <div className="attributes-block">
         <h3 className="attribute-name">{attribute.name}</h3>  
-        <div className="attributes">{values}</div>
+        <div className={overlay ? "attributes s-attributes" : "attributes"}>{values}</div>
       </div>
     );
   }
